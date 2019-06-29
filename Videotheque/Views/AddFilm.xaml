@@ -1,0 +1,79 @@
+﻿<Page x:Class="Videotheque.Views.AddFilm"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Videotheque.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddFilm" Loaded="Page_Loaded">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Purple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Purple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ListView.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Textbox.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Ajouter un film :"/>
+        
+        <Label Content="Titre :" Grid.Row="1"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Film.Titre, Mode=TwoWay}"/>
+        <Label Content="Date de création :" Grid.Row="2"/>
+        <DatePicker Grid.Row="2" Grid.Column="1" DisplayDate="{Binding Film.DateCreation, Mode=TwoWay}"/>
+        <Label Content="Note :" Grid.Row="3"/>
+        <TextBox Grid.Row="3" Grid.Column="1" PreviewTextInput="NumberValidationTextBox" Text="{Binding Film.Note, Mode=TwoWay}"/>
+        <Label Content="Commentaire :" Grid.Row="4"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Film.Commentaire, Mode=TwoWay}"/>
+        <Label Content="Synopsis :" Grid.Row="5"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Film.Synopsis, Mode=TwoWay}"/>
+        <Label Content="Age minimum :" Grid.Row="6"/>
+        <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding Film.AgeMinimum, Mode=TwoWay}"/>
+        <Label Content="Langue VO :" Grid.Row="7"/>
+        <ComboBox Grid.Row="7" Grid.Column="1" ItemsSource="{Binding Langues}" SelectedValue="{Binding Film.LangueVO, Mode=TwoWay}" DisplayMemberPath="ValueString" SelectedValuePath="ValueEnum"/>
+        <Label Content="Langue média :" Grid.Row="8"/>
+        <ComboBox Grid.Row="8" Grid.Column="1" ItemsSource="{Binding Langues}" SelectedValue="{Binding Film.LangueMedia, Mode=TwoWay}" DisplayMemberPath="ValueString" SelectedValuePath="ValueEnum"/>
+        <Label Content="Langue sous-titres :" Grid.Row="9"/>
+        <ComboBox Grid.Row="9" Grid.Column="1" ItemsSource="{Binding Langues}" SelectedValue="{Binding Film.SousTitre, Mode=TwoWay}" DisplayMemberPath="ValueString" SelectedValuePath="ValueEnum"/>
+        <Label Content="Audio description :" Grid.Row="10"/>
+        <CheckBox Grid.Row="10" Grid.Column="1" IsChecked="{Binding Film.AudioDescription, Mode=TwoWay}"/>
+        <Label Content="Support physique :" Grid.Row="11"/>
+        <CheckBox Grid.Row="11" Grid.Column="1" IsChecked="{Binding Film.SupportPhysique, Mode=TwoWay}"/>
+        <Label Content="Support numérique :" Grid.Row="12"/>
+        <CheckBox Grid.Row="12" Grid.Column="1" IsChecked="{Binding Film.SupportNumerique, Mode=TwoWay}"/>
+        <Label Content="Genre :" Grid.Row="13"/>
+        <ComboBox Grid.Row="13" Grid.Column="1" ItemsSource="{Binding Genres}" SelectedItem="{Binding Film.Genre, Mode=TwoWay}"/>
+        <Label Content="Durée :" Grid.Row="14"/>
+        <TextBox Grid.Row="14" Grid.Column="1" Text="{Binding Film.Duree, Mode=TwoWay}"/>
+        <Button Grid.Row="15" Grid.Column="1" Content="Valider" Click="Button_Click" BorderBrush="Black" BorderThickness="1"/>
+    </Grid>
+</Page>

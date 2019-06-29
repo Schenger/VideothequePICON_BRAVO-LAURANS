@@ -1,0 +1,62 @@
+﻿<Page x:Class="Videotheque.Views.Prets"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Videotheque.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Prets" Loaded="Page_Loaded">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Purple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Purple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ListView.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Textbox.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate x:Key="Normal">
+                <Grid Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBox}},Path=ActualWidth}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" Text="{Binding Titre}" Margin="5,0,5,0" VerticalAlignment="Center"/>
+
+                    <TextBlock Grid.Column="1" Text="{Binding Personne.Prenom}" Margin="5,0,5,0" VerticalAlignment="Center"/>
+
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <ComboBox ItemsSource="{Binding FilmDispo}" SelectedItem="{Binding SelectedFilm}" Margin="15,0,15,0"></ComboBox>
+            <ComboBox Grid.Column="1" ItemsSource="{Binding Amis}" SelectedItem="{Binding SelectedAmi}" Margin="15,0,15,0"></ComboBox>
+            <Button Grid.Column="2" Content="Preter" Click="Preter" Margin="15,0,15,0" BorderBrush="Black" BorderThickness="1"/>
+        </Grid>
+
+        <ListView Grid.Row="1" ItemsSource="{Binding FilmPret}" SelectedItem="{Binding SelectedPret}" ItemTemplate="{StaticResource Normal}">
+            
+        </ListView>
+
+        <Button Grid.Row="3" Content="Rendre" Click="Rendre" Margin="15,0,15,0" BorderBrush="Black" BorderThickness="1"/>
+    </Grid>
+</Page>

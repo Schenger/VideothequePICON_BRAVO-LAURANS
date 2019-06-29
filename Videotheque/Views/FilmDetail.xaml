@@ -1,0 +1,78 @@
+﻿<Page x:Class="Videotheque.Views.FilmDetail"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Videotheque.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="FilmDetail" Loaded="Page_Loaded">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Purple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Purple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ListView.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Textbox.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Titre :" Grid.Row="1"/>
+        <Label Grid.Row="1" Grid.Column="1" Content="{Binding Film.Titre}"/>
+        <Label Content="Date de création :" Grid.Row="2"/>
+        <Label Grid.Row="2" Grid.Column="1" Content="{Binding Film.DateCreation}"/>
+        <Label Content="Note :" Grid.Row="3"/>
+        <Label Grid.Row="3" Grid.Column="1" Content="{Binding Film.Note}"/>
+        <Label Content="Commentaire :" Grid.Row="4"/>
+        <Label Grid.Row="4" Grid.Column="1" Content="{Binding Film.Commentaire}"/>
+        <Label Content="Synopsis :" Grid.Row="5"/>
+        <Label Grid.Row="5" Grid.Column="1" Content="{Binding Film.Synopsis}"/>
+        <Label Content="Age minimum :" Grid.Row="6"/>
+        <Label Grid.Row="6" Grid.Column="1" Content="{Binding Film.AgeMinimum}"/>
+        <Label Content="Langue VO :" Grid.Row="7"/>
+        <Label Grid.Row="7" Grid.Column="1" Content="{Binding Film.LangueVO}"/>
+        <Label Content="Langue média :" Grid.Row="8"/>
+        <Label Grid.Row="8" Grid.Column="1" Content="{Binding Film.LangueMedia}"/>
+        <Label Content="Langue sous-titres :" Grid.Row="9"/>
+        <Label Grid.Row="9" Grid.Column="1" Content="{Binding Film.SousTitre}"/>
+        <Label Content="Audio description :" Grid.Row="10"/>
+        <Label Grid.Row="10" Grid.Column="1" Content="{Binding Film.AudioDescription}"/>
+        <Label Content="Support physique :" Grid.Row="11"/>
+        <Label Grid.Row="11" Grid.Column="1" Content="{Binding Film.SupportPhysique}"/>
+        <Label Content="Support numérique :" Grid.Row="12"/>
+        <Label Grid.Row="12" Grid.Column="1" Content="{Binding Film.SupportNumerique}"/>
+        <Label Content="Genre :" Grid.Row="13"/>
+        <Label Grid.Row="13" Grid.Column="1" Content="{Binding Film.Genre}"/>
+        <Label Content="Durée :" Grid.Row="14"/>
+        <Label Grid.Row="14" Grid.Column="1" Content="{Binding Film.Duree}"/>
+        <Button Grid.Row="15" Content="Modifier" BorderBrush="Black" BorderThickness="1" Margin="2" Click="UpdateButton"/>
+        <Button Grid.Row="15" Grid.Column="1" Content="Supprimer" BorderBrush="Black" BorderThickness="1" Margin="2" Click="RemoveButton"/>
+    </Grid>
+</Page>
